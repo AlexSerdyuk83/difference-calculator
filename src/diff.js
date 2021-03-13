@@ -1,10 +1,10 @@
 // eslint-disable-next-line import/no-unresolved
-import convert from './convert.js';
+import convertJson from './parsers.js';
 
 // eslint-disable-next-line import/prefer-default-export
 const genDiff = (file1nName, file2Name) => {
-  const file1 = convert(file1nName);
-  const file2 = convert(file2Name);
+  const file1 = convertJson(file1nName);
+  const file2 = convertJson(file2Name);
   const keys1 = Object.keys(file1).sort();
   const keys2 = Object.keys(file2).sort();
   const keys = Array.from(new Set([...keys1, ...keys2]));
