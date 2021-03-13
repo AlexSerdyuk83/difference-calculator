@@ -3,7 +3,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
-[![Actions Status](https://github.com/AlexSerdyuk83/frontend-project-lv2/workflows/nodejs/badge.svg)](https://github.com/AlexSerdyuk83/frontend-project-lvl2/actions)
+[![Node CI](https://github.com/AlexSerdyuk83/frontend-project-lvl2/actions/workflows/nodejs.yml/badge.svg)](https://github.com/AlexSerdyuk83/frontend-project-lvl2/actions/workflows/nodejs.yml)
 
 
 https://asciinema.org/a/WiodppC1bX4QSqO5iUoH1uTlE
