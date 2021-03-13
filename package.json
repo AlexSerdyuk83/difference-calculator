@@ -4,7 +4,7 @@
   "description": "[![Actions Status](https://github.com/AlexSerdyuk83/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/AlexSerdyuk83/frontend-project-lvl2/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "npx -n --experimental-vm-modules jest --watch"
+    "test": "npx -n --experimental-vm-modules jest"
   },
   "type": "module",
   "jest": {
