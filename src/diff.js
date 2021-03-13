@@ -1,9 +1,8 @@
-/* import _ from 'lodash'; */
 // eslint-disable-next-line import/no-unresolved
-import { convert } from './convert.js';
+import convert from './convert.js';
 
 // eslint-disable-next-line import/prefer-default-export
-export const genDiff = (file1nName, file2Name) => {
+const genDiff = (file1nName, file2Name) => {
   const file1 = convert(file1nName);
   const file2 = convert(file2Name);
   const keys1 = Object.keys(file1).sort();
@@ -25,3 +24,5 @@ export const genDiff = (file1nName, file2Name) => {
   }, []);
   return `{\n${result.join('\n')}\n}`;
 };
+
+export default genDiff;

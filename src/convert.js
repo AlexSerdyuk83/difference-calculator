@@ -11,4 +11,4 @@ const convert = (fileName) => {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export { convert };
+export default convert;

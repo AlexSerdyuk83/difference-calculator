@@ -1,11 +1,15 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "type": "module",
   "description": "[![Actions Status](https://github.com/AlexSerdyuk83/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/AlexSerdyuk83/frontend-project-lvl2/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx -n --experimental-vm-modules jest --watch"
+  },
+  "type": "module",
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {}
   },
   "repository": {
     "type": "git",
@@ -27,7 +31,6 @@
   "devDependencies": {
     "eslint": "^7.21.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "lodash": "^4.17.21"
+    "eslint-plugin-import": "^2.22.1"
   }
 }
