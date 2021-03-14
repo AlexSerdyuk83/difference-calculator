@@ -1,23 +1,24 @@
 import { readFileSync } from 'fs';
+import { extname } from 'path';
+import { load } from 'js-yaml';
 /* import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url'; */
 
-const convertJson = (fileName) => {
+const getFlat = (data) => {
+  const result = data.reduce((acc, item) => {
+    const key = Object.keys(item)[0];
+    const value = item[key];
+    acc[key] = value;
+    return acc;
+  }, {});
+  return result;
+};
+
+const convert = (fileName) => {
   const content = readFileSync(fileName, 'utf8');
-  return JSON.parse(content);
+  const format = extname(fileName);
+  const result = format === '.json' ? JSON.parse(content) : getFlat(load(content));
+  return result;
 };
 
-/*   const writeInConst = (fileName) => {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
-  const path = resolve(__dirname, fileName);
-  return readFileSync(path, 'utf8');
-};
-
-  const convertJson = (fileName) => {
-  const content = writeInConst(fileName, 'utf8');
-  return JSON.parse(content);
-}; */
-
-// eslint-disable-next-line import/prefer-default-export
-export default convertJson;
+export default convert;
