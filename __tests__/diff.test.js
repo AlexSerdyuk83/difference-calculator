@@ -1,8 +1,7 @@
 import { readFileSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import genDiff from '../src/diff.js';
-import convert from '../src/parsers.js';
+import genDiff from '../index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -15,32 +14,6 @@ const pathToFileYml1 = getFixturePath('file_yml1.yml');
 const pathToFileYml2 = getFixturePath('file_yml2.yml');
 
 const pathToFileTxt = getFixturePath('result_diff.txt');
-
-it('convert', () => {
-  const expected1 = {
-    host: 'hexlet.io',
-    timeout: 50,
-    proxy: '123.234.53.22',
-    follow: false,
-  };
-  const expected2 = {
-    timeout: 20,
-    verbose: true,
-    host: 'hexlet.io',
-  };
-
-  const actual1 = convert(pathToFileJson1);
-  expect(actual1).toEqual(expected1);
-
-  const actual2 = convert(pathToFileJson2);
-  expect(actual2).toEqual(expected2);
-
-  const actual3 = convert(pathToFileYml1);
-  expect(actual3).toEqual(expected1);
-
-  const actual4 = convert(pathToFileYml2);
-  expect(actual4).toEqual(expected2);
-});
 
 it('finding the difference between files', () => {
   const expected1 = genDiff(pathToFileJson1, pathToFileJson2);

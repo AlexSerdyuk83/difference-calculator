@@ -1,28 +1,46 @@
 // eslint-disable-next-line import/no-unresolved
-import convert from './parsers.js';
+import _ from 'lodash';
 
-// eslint-disable-next-line import/prefer-default-export
-const genDiff = (file1nName, file2Name) => {
-  const file1 = convert(file1nName);
-  const file2 = convert(file2Name);
-  const keys1 = Object.keys(file1).sort();
-  const keys2 = Object.keys(file2).sort();
-  const keys = Array.from(new Set([...keys1, ...keys2]));
-  // eslint-disable-next-line array-callback-return
-  const result = keys.reduce((acc, key) => {
-    if (keys1.includes(key) && !keys2.includes(key)) {
-      acc.push(`- ${key}: ${file1[key]}`);
-    } else if (!keys1.includes(key) && keys2.includes(key)) {
-      acc.push(`+ ${key}: ${file2[key]}`);
-    } else if ((keys1.includes(key) && keys2.includes(key)) && file1[key] === file2[key]) {
-      acc.push(`  ${key}: ${file1[key]}`);
-    } else {
-      acc.push(`- ${key}: ${file1[key]}`);
-      acc.push(`+ ${key}: ${file2[key]}`);
-    }
-    return acc;
-  }, []);
-  return `{\n${result.join('\n')}\n}`;
+const generateResultDiff = (data1, data2) => {
+  const unionKeys = _.sortBy(_.union(_.keys(data1), _.keys(data2)));
+  return unionKeys
+    .map((node) => {
+      if (!_.has(data1, node)) {
+        return {
+          name: node,
+          type: 'added',
+          value: data2[node],
+        };
+      }
+      if (!_.has(data2, node)) {
+        return {
+          name: node,
+          type: 'deleted',
+          value: data1[node],
+        };
+      }
+      if (_.isPlainObject(data1[node]) && _.isPlainObject(data2[node])) {
+        return {
+          name: node,
+          type: 'nested',
+          // eslint-disable-next-line no-unused-vars
+          children: generateResultDiff(data1[node], data2[node]),
+        };
+      }
+      if (!_.isEqual(data1[node], data2[node])) {
+        return {
+          name: node,
+          type: 'changed',
+          valueBefore: data1[node],
+          valueAfter: data2[node],
+        };
+      }
+      return {
+        name: node,
+        type: 'identical',
+        value: data1[node],
+      };
+    });
 };
 
-export default genDiff;
+export default generateResultDiff;

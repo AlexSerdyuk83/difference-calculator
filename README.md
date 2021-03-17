@@ -6,7 +6,4 @@
 [![Node CI](https://github.com/AlexSerdyuk83/frontend-project-lvl2/actions/workflows/nodejs.yml/badge.svg)](https://github.com/AlexSerdyuk83/frontend-project-lvl2/actions/workflows/nodejs.yml)
 
 
-Finding differences between JSON files: https://asciinema.org/a/WiodppC1bX4QSqO5iUoH1uTlE
-
-Finding differences between YAML files: https://asciinema.org/a/0J3X0IWCLwW7C6hER46k4nkFH
-
+Finding differences between JSON & YAML files: https://asciinema.org/a/XWSYhcJzHWFFvivQUjpo4MT9L
