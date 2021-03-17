@@ -1,27 +1,28 @@
-import { readFileSync } from 'fs';
-import { dirname, join } from 'path';
+import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
-import genDiff from '../index.js';
+import genDiff from '../src/gendiff.js';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(__filename);
 
-const getFixturePath = (filename) => join(__dirname, 'src', '..', '__fixtures__', filename);
+const getFixturePath = (filename) => path.join(__dirname, 'src', '..', '__fixtures__', filename);
 
-const pathToFileJson1 = getFixturePath('file1.json');
-const pathToFileJson2 = getFixturePath('file2.json');
-const pathToFileYml1 = getFixturePath('file_yml1.yml');
-const pathToFileYml2 = getFixturePath('file_yml2.yml');
+const file1Json = getFixturePath('file1.json');
+const file2Json = getFixturePath('file2.json');
+const file1Yml = getFixturePath('file1.yml');
+const file2Yml = getFixturePath('file2.yml');
+const diffStylish = fs.readFileSync(getFixturePath('result_stylish.txt'), 'utf8');
+const diffPlain = fs.readFileSync(getFixturePath('result_plain.txt'), 'utf8');
+const diffJson = fs.readFileSync(getFixturePath('result_json.txt'), 'utf8');
 
-const pathToFileTxt = getFixturePath('result_diff.txt');
-
-it('finding the difference between files', () => {
-  const expected1 = genDiff(pathToFileJson1, pathToFileJson2);
-  const expected2 = genDiff(pathToFileYml1, pathToFileYml2);
-  const expected3 = genDiff(pathToFileYml1, pathToFileJson2);
-  const actual = readFileSync(pathToFileTxt, 'utf-8');
-
-  expect(actual).toEqual(expected1);
-  expect(actual).toEqual(expected2);
-  expect(actual).toEqual(expected3);
+test.each([
+  ['diffJsonToStylish', file1Json, file2Json, diffStylish, 'stylish'],
+  ['diffYmlToStylish', file1Yml, file2Yml, diffStylish, 'stylish'],
+  ['diffJsonToPlain', file1Json, file2Json, diffPlain, 'plain'],
+  ['diffYmlToPlain', file1Yml, file2Yml, diffPlain, 'plain'],
+  ['diffJsonToJson', file1Json, file2Json, diffJson, 'json'],
+  ['diffYmlToJson', file1Yml, file2Yml, diffJson, 'json'],
+])('%s', (name, a, b, expected, format) => {
+  expect(genDiff(a, b, format)).toBe(expected);
 });
