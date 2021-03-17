@@ -2,7 +2,7 @@
 import Command from 'commander';
 import genDiff from '../index.js';
 
-const program = new Command();
+const program = Command;
 
 program
   .version('0.1.0')
