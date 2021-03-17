@@ -11,3 +11,5 @@
 Get diff JSON & YML files to stylish format: https://asciinema.org/a/XWSYhcJzHWFFvivQUjpo4MT9L
 
 Get diff JSON & YML files to plain format: https://asciinema.org/a/cS7muPldOHdeG0pUcm3Ob8CpV
+
+Get diff JSON & YML files to JSON format: https://asciinema.org/a/Zwiza065BfBdDq8E9xbAJhPez
