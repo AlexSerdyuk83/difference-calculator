@@ -26,6 +26,7 @@ const toStringChanged = (elem, lvlIndent) => {
   return `${indent}- ${name}: ${toString(valueBefore, lvlIndent)}\n${indent}+ ${name}: ${toString(valueAfter, lvlIndent)}`;
 };
 
+/* converting data to stylish format */
 const renderStylish = (diff) => {
   const iter = (data, lvl = 0) => {
     const result = data.map((elem) => {

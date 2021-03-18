@@ -1,5 +1,6 @@
 import yaml from 'js-yaml';
 
+/* the function defines the file format */
 const getFormat = (ext) => {
   switch (ext) {
     case '.json':
@@ -13,6 +14,7 @@ const getFormat = (ext) => {
   }
 };
 
+/* the function converts a file to a JavaScript object */
 const parse = (format, content) => {
   switch (format) {
     case 'json':

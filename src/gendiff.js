@@ -3,6 +3,8 @@ import formatting from './formatters/index.js';
 import generateResultDiff from './diff.js';
 import { getFullPath, getFileContent, getFileExt } from './utilites.js';
 
+/* the input function gets the paths to the files and the required
+output format of the difference and returns the final result */
 const genDiff = (filepath1, filepath2, format = 'stylish') => {
   const contentFile1 = getFileContent(getFullPath(filepath1));
   const contentFile2 = getFileContent(getFullPath(filepath2));

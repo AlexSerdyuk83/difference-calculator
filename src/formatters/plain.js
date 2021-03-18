@@ -10,6 +10,7 @@ const valueToString = (value) => {
   return `${value}`;
 };
 
+/* converting data to plain format */
 const renderPlain = (difference) => {
   const iter = (data, name = []) => {
     const dataFiltered = data.filter(({ type }) => type !== 'identical');

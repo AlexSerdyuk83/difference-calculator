@@ -2,6 +2,7 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
+/* the function returns the result in a required format. */
 const formatting = (format, difference) => {
   switch (format) {
     case 'json':

@@ -1,3 +1,11 @@
+# Difference calculator
+
+*A program that determines the difference between two data structures.*
+
+*Utility features:*
+* Support for different input formats: yaml, json;
+* Generating a report in plain text, stylish, and json format.
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/AlexSerdyuk83/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/AlexSerdyuk83/frontend-project-lvl2/actions)
 

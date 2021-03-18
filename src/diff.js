@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import _ from 'lodash';
 
+/* the function finds and returns the differences between files as an array with objects */
 const generateResultDiff = (data1, data2) => {
   const unionKeys = _.sortBy(_.union(_.keys(data1), _.keys(data2)));
   return unionKeys
