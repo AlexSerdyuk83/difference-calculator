@@ -15,6 +15,20 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/5f8650d870065d3fb560/test_coverage)](https://codeclimate.com/github/AlexSerdyuk83/frontend-project-lvl2/test_coverage)
 
+# Usage
+
+```sudo npm install -g frontend-gendiff-lvl2```
+
+### Options:
+
+```-V, --version``` output the version number
+```-f, --format [type]``` Output format
+```-h, --help``` output usage information
+
+```[type] - plain, json, nested```
+```<pathToFile>``` - path to json, yaml or ini configuration file
+
+# Examples:
 
 Get diff JSON & YML files to stylish format: https://asciinema.org/a/XWSYhcJzHWFFvivQUjpo4MT9L
 
