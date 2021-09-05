@@ -22,10 +22,13 @@
 ### Options:
 
 ```-V, --version``` output the version number
+
 ```-f, --format [type]``` Output format
+
 ```-h, --help``` output usage information
 
 ```[type] - plain, json, nested```
+
 ```<pathToFile>``` - path to json, yaml or ini configuration file
 
 # Examples:
