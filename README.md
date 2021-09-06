@@ -17,7 +17,7 @@
 
 # Usage
 
-```sudo npm install -g frontend-gendiff-lvl2```
+git clone:```https://github.com/AlexSerdyuk83/frontend-project-lvl2.git```
 
 ### Options:
 
