@@ -17,7 +17,7 @@
 
 # Usage
 
-git clone:```https://github.com/AlexSerdyuk83/frontend-project-lvl2.git```
+git clone:```https://github.com/AlexSerdyuk83/difference-calculator.git```
 
 ### Options:
 
